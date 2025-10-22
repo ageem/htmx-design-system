@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Utilities • UI Library</title>
+    <link rel="stylesheet" href="../dist/tokens.css" />
+    <link rel="stylesheet" href="../dist/utilities.css" />
+    <link rel="stylesheet" href="../dist/components.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="../dist/alpine-helpers.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="btn" data-variant="outline" href="./index.html">Home</a>
+        <div class="flex items-center gap-3">
+          <a class="btn" data-variant="primary" href="./utilities.html">Utilities</a>
+          <a class="btn" data-variant="outline" href="./tokens.html">Tokens</a>
+          <button class="btn" data-variant="outline" x-data x-on:click="$store.theme.toggle()">Toggle Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-block: var(--space-7)">
+      <h1 class="text-xl" style="margin: 0 0 var(--space-6) 0">Utilities</h1>
+
+      <section class="card" data-padding="md" style="margin-bottom: var(--space-6)">
+        <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Layout</h2>
+        <div class="grid gap-4" style="grid-template-columns: repeat(3, minmax(0,1fr))">
+          <div class="card p-4">.grid</div>
+          <div class="card p-4">.grid</div>
+          <div class="card p-4">.grid</div>
+        </div>
+        <div class="flex gap-4 mt-4">
+          <div class="card p-4">.flex</div>
+          <div class="card p-4">.flex</div>
+          <div class="card p-4">.flex</div>
+        </div>
+      </section>
+
+      <section class="card" data-padding="md" style="margin-bottom: var(--space-6)">
+        <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Spacing</h2>
+        <div class="flex items-center gap-4">
+          <div class="bg-brand" style="width: 32px; height: 32px;"></div>
+          <div class="bg-brand" style="width: 48px; height: 48px;"></div>
+          <div class="bg-brand" style="width: 64px; height: 64px;"></div>
+        </div>
+        <div class="mt-4">
+          <div class="card p-4 mb-2">.p-4 .mb-2</div>
+          <div class="card p-2">.p-2</div>
+        </div>
+      </section>
+
+      <section class="card" data-padding="md" style="margin-bottom: var(--space-6)">
+        <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Typography & Color</h2>
+        <p class="text-xs">text-xs</p>
+        <p class="text-sm">text-sm</p>
+        <p class="text-base">text-base</p>
+        <p class="text-lg">text-lg</p>
+        <p class="text-xl">text-xl</p>
+        <p class="text-muted">.text-muted</p>
+        <p class="text-brand">.text-brand</p>
+      </section>
+
+      <section class="card" data-padding="md">
+        <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Responsive helpers</h2>
+        <div class="bg-surface-2 p-4 border rounded-md">
+          <div class="sm:flex hidden">Visible ≥ sm</div>
+          <div class="md:flex hidden">Visible ≥ md</div>
+          <div class="lg:flex hidden">Visible ≥ lg</div>
+        </div>
+      </section>
+    </main>
+  </body>
+  </html>
+

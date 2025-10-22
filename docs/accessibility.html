@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accessibility • UI Library</title>
+    <link rel="stylesheet" href="../dist/tokens.css" />
+    <link rel="stylesheet" href="../dist/utilities.css" />
+    <link rel="stylesheet" href="../dist/components.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="../dist/alpine-helpers.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="btn" data-variant="outline" href="./index.html">Home</a>
+        <div class="flex items-center gap-3">
+          <a class="btn" data-variant="outline" href="./tokens.html">Tokens</a>
+          <a class="btn" data-variant="outline" href="./utilities.html">Utilities</a>
+          <button class="btn" data-variant="outline" x-data x-on:click="$store.theme.toggle()">Toggle Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-block: var(--space-7)">
+      <h1 class="text-xl" style="margin: 0 0 var(--space-6) 0">Accessibility</h1>
+
+      <section class="card" data-padding="md" style="margin-bottom: var(--space-6)">
+        <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Keyboard</h2>
+        <ul class="text-sm">
+          <li>All interactive elements are reachable via Tab order.</li>
+          <li>Use <code>:focus-visible</code> outlines for clear focus states.</li>
+          <li>Dialog and menus should trap focus while open.</li>
+        </ul>
+      </section>
+
+      <section class="card" data-padding="md" style="margin-bottom: var(--space-6)">
+        <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Roles & ARIA</h2>
+        <ul class="text-sm">
+          <li>Tabs: <code>role="tablist"</code>, <code>role="tab"</code>, and <code>role="tabpanel"</code> with <code>aria-selected</code>.</li>
+          <li>Icon-only buttons require an <code>aria-label</code>.</li>
+          <li>Inputs use associated <code>&lt;label for&gt;</code> and <code>aria-describedby</code> for help/error.</li>
+        </ul>
+      </section>
+
+      <section class="card" data-padding="md">
+        <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Reduced Motion</h2>
+        <p class="text-sm">Motion durations collapse to 0 when the user prefers reduced motion, via <code>@media (prefers-reduced-motion: reduce)</code> tokens.</p>
+      </section>
+    </main>
+  </body>
+  </html>
+

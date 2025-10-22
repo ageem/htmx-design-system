@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HTML/HTMX + Alpine UI Library</title>
+    <meta name="description" content="Build-less, CDN-first UI library with tokens, utilities, and components for HTML/HTMX + Alpine.js" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>✨</text></svg>">
+    <!-- Local dist CSS -->
+    <link rel="stylesheet" href="../dist/tokens.css" />
+    <link rel="stylesheet" href="../dist/utilities.css" />
+    <link rel="stylesheet" href="../dist/components.css" />
+    <!-- Alpine & HTMX (CDN) -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <!-- Local helpers -->
+    <script defer src="../dist/alpine-helpers.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <div class="flex items-center gap-3">
+          <strong>UI Library</strong>
+          <span class="badge" data-variant="brand">CDN-first</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <a class="btn" data-variant="outline" href="./utilities.html">Utilities</a>
+          <a class="btn" data-variant="outline" href="./tokens.html">Tokens</a>
+          <a class="btn" data-variant="primary" href="./components/button.html">Components</a>
+          <button class="btn" data-variant="outline" x-data x-on:click="$store.theme.toggle()">Toggle Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-block: var(--space-7)">
+      <section class="card" data-padding="lg" style="margin-bottom: var(--space-7)">
+        <h1 class="text-xl" style="margin: 0 0 var(--space-5) 0">Build-less HTML/HTMX + Alpine UI</h1>
+        <p class="text-muted">A CDN-first CSS framework with tokens, utilities, and shadcn-style components. Works on shared hosting. No build tools required.</p>
+        <div class="flex gap-4 mt-4">
+          <a class="btn" data-variant="primary" href="./utilities.html">Get Started</a>
+          <a class="btn" data-variant="outline" href="./tokens.html">Design Tokens</a>
+        </div>
+      </section>
+
+      <section class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-7)">
+        <div class="card" data-padding="md">
+          <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Quick Start (CDN)</h2>
+          <pre class="text-sm bg-surface-2 p-4 border rounded-md"><code>&lt;link rel="stylesheet" href="/dist/tokens.css" /&gt;
+&lt;link rel="stylesheet" href="/dist/utilities.css" /&gt;
+&lt;link rel="stylesheet" href="/dist/components.css" /&gt;
+&lt;script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/htmx.org@1.9.12"&gt;&lt;/script&gt;
+&lt;script defer src="/dist/alpine-helpers.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+
+        <div class="card" data-padding="md">
+          <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Quick Start (Local)</h2>
+          <ol class="text-sm" style="margin:0; padding-left: 1rem">
+            <li class="mb-2">Copy <code>/dist/*</code> into your project.</li>
+            <li class="mb-2">Link the CSS/JS with relative paths.</li>
+            <li>Open your HTML file in a browser. No build step needed.</li>
+          </ol>
+        </div>
+
+        <div class="card" data-padding="md">
+          <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Features</h2>
+          <ul class="text-sm" style="margin:0; padding-left: 1rem">
+            <li>Tokens with light/dark themes</li>
+            <li>Utility CSS for layout/spacing/typography</li>
+            <li>Components with data-* variants and sizes</li>
+            <li>Alpine helpers for dialog, tabs, dropdown, toast</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-7); margin-bottom: var(--space-7)">
+        <div class="card" data-padding="md">
+          <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Components Gallery</h2>
+          <div class="flex gap-3 mb-2">
+            <a class="btn" data-variant="primary" href="./components/button.html">Buttons</a>
+            <a class="btn" data-variant="outline" href="./components/input.html">Inputs</a>
+            <a class="btn" data-variant="outline" href="./components/card.html">Cards</a>
+          </div>
+          <div class="flex gap-3">
+            <a class="btn" data-variant="outline" href="./components/tabs.html">Tabs</a>
+            <a class="btn" data-variant="outline" href="./components/dialog.html">Dialog</a>
+            <a class="btn" data-variant="outline" href="./components/table.html">Table</a>
+          </div>
+        </div>
+
+        <div class="card" data-padding="md" x-data="tabs('one')">
+          <h3 class="text-lg" style="margin: 0 0 var(--space-4) 0">Live Preview</h3>
+          <div class="tabs">
+            <div role="tablist">
+              <button role="tab" :aria-selected="is('one')" @click="select('one')">One</button>
+              <button role="tab" :aria-selected="is('two')" @click="select('two')">Two</button>
+            </div>
+            <div role="tabpanel" x-show="is('one')">Tab one content</div>
+            <div role="tabpanel" x-show="is('two')">Tab two content</div>
+          </div>
+        </div>
+
+        <div class="card" data-padding="md">
+          <h3 class="text-lg" style="margin: 0 0 var(--space-4) 0">Theming</h3>
+          <p class="text-sm">This site uses <code>data-theme</code> on <code>&lt;html&gt;</code>. Toggle with the header button. Override tokens in <code>dist/tokens.css</code>.</p>
+        </div>
+      </section>
+
+      <section class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-6)">
+        <div class="card" data-padding="md">
+          <h3 class="text-lg" style="margin: 0 0 var(--space-4) 0">HTMX</h3>
+          <p class="text-sm">Enhance with <code>hx-get</code>/<code>hx-post</code>, loading and error states. See <a href="./htmx.html">HTMX docs</a>. Use a local server for XHR.</p>
+        </div>
+        <div class="card" data-padding="md">
+          <h3 class="text-lg" style="margin: 0 0 var(--space-4) 0">Accessibility</h3>
+          <p class="text-sm">Visible focus, keyboard support, reduced-motion. See <a href="./accessibility.html">A11y guide</a>.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Dialog elements -->
+    <div class="dialog-backdrop" data-dialog-backdrop="demo"></div>
+    <div class="dialog" data-dialog="demo">
+      <div data-dialog-panel>
+        <div data-dialog-header>Example Dialog</div>
+        <div data-dialog-body>
+          <p>Dialog body content goes here.</p>
+        </div>
+        <div data-dialog-footer>
+          <button class="btn" data-variant="ghost" onclick="Alpine.store('dialog').close('demo')">Cancel</button>
+          <button class="btn" data-variant="primary" onclick="Alpine.store('dialog').close('demo')">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast container -->
+    <div class="toast-container" x-data x-init="$watch('$store.toast.items', value => value)" aria-live="polite" aria-atomic="true">
+      <template x-for="t in $store.toast.items" :key="t.id">
+        <div class="toast" :data-variant="t.variant">
+          <div class="text-sm" x-text="t.msg"></div>
+          <button class="btn" data-variant="icon" @click="$store.toast.dismiss(t.id)" aria-label="Dismiss">✕</button>
+        </div>
+      </template>
+    </div>
+  </body>
+  </html>
+

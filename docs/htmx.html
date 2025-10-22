@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HTMX • UI Library</title>
+    <link rel="stylesheet" href="../dist/tokens.css" />
+    <link rel="stylesheet" href="../dist/utilities.css" />
+    <link rel="stylesheet" href="../dist/components.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <script defer src="../dist/alpine-helpers.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="btn" data-variant="outline" href="./index.html">Home</a>
+        <div class="flex items-center gap-3">
+          <a class="btn" data-variant="outline" href="./tokens.html">Tokens</a>
+          <a class="btn" data-variant="outline" href="./utilities.html">Utilities</a>
+          <button class="btn" data-variant="outline" x-data x-on:click="$store.theme.toggle()">Toggle Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-block: var(--space-7)">
+      <h1 class="text-xl" style="margin: 0 0 var(--space-6) 0">HTMX Usage</h1>
+
+      <section class="card" data-padding="md" style="margin-bottom: var(--space-6)">
+        <h2 class="text-lg" style="margin:0 0 var(--space-4) 0">CDN Include</h2>
+        <pre class="text-sm bg-surface-2 p-4 border rounded-md"><code>&lt;script src="https://unpkg.com/htmx.org@1.9.12"&gt;&lt;/script&gt;</code></pre>
+        <p class="text-sm text-muted mt-2">HTMX enhances HTML with attributes like <code>hx-get</code>, <code>hx-post</code>, <code>hx-target</code>, <code>hx-swap</code>.</p>
+      </section>
+
+      <section class="card" data-padding="md" style="margin-bottom: var(--space-6)">
+        <h2 class="text-lg" style="margin:0 0 var(--space-4) 0">Example Patterns</h2>
+        <ol class="text-sm" style="margin:0; padding-left: 1rem">
+          <li class="mb-2"><strong>Partial load:</strong> <code>&lt;button hx-get="/partials/snippet.html" hx-target="#out" hx-swap="innerHTML"&gt;Load&lt;/button&gt;</code></li>
+          <li class="mb-2"><strong>Form post:</strong> <code>&lt;form hx-post="/submit" hx-target="#out" hx-swap="innerHTML"&gt;...&lt;/form&gt;</code></li>
+          <li class="mb-2"><strong>Loading state:</strong> add <code>hx-indicator="#spinner"</code> and show a spinner while the request runs.</li>
+          <li class="mb-2"><strong>Error state:</strong> handle <code>htmx:responseError</code> to show a toast or inline alert.</li>
+        </ol>
+
+        <div class="card mt-4" data-padding="md">
+          <div id="out" class="text-sm">Response content target</div>
+          <div id="spinner" class="text-sm text-muted mt-2 hidden">Loading...</div>
+          <div class="mt-4 flex gap-3">
+            <button class="btn" data-variant="outline" disabled title="Requires http(s)">Load Partial (requires http)</button>
+            <button class="btn" data-variant="ghost" onclick="Alpine.store('toast').show('Use a local server to run HTMX demos', { variant: 'info' })">Why disabled?</button>
+          </div>
+          <p class="text-xs text-muted mt-2">Note: Browsers block XHR from <code>file://</code>. Use a local server (e.g., <code>python -m http.server</code>) to try HTMX examples.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+  </html>
+

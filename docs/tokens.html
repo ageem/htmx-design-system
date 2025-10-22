@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tokens • UI Library</title>
+    <link rel="stylesheet" href="../dist/tokens.css" />
+    <link rel="stylesheet" href="../dist/utilities.css" />
+    <link rel="stylesheet" href="../dist/components.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="../dist/alpine-helpers.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="btn" data-variant="outline" href="./index.html">Home</a>
+        <div class="flex items-center gap-3">
+          <a class="btn" data-variant="outline" href="./utilities.html">Utilities</a>
+          <a class="btn" data-variant="primary" href="./tokens.html">Tokens</a>
+          <button class="btn" data-variant="outline" x-data x-on:click="$store.theme.toggle()">Toggle Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-block: var(--space-7)">
+      <h1 class="text-xl" style="margin: 0 0 var(--space-6) 0">Design Tokens</h1>
+
+      <section class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-6)">
+        <div class="card" data-padding="md">
+          <h2 class="text-lg" style="margin:0 0 var(--space-4) 0">Colors</h2>
+          <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: var(--space-4)">
+            <div class="p-2 border rounded-md" style="background: var(--bg)">bg</div>
+            <div class="p-2 border rounded-md" style="background: var(--surface-2-bg)">surface-2</div>
+            <div class="p-2 border rounded-md" style="background: var(--surface-3-bg)">surface-3</div>
+            <div class="p-2 border rounded-md" style="background: var(--brand); color: var(--brand-contrast)">brand</div>
+            <div class="p-2 border rounded-md" style="background: var(--ok); color:#fff">ok</div>
+            <div class="p-2 border rounded-md" style="background: var(--warn)">warn</div>
+            <div class="p-2 border rounded-md" style="background: var(--danger); color:#fff">danger</div>
+          </div>
+        </div>
+
+        <div class="card" data-padding="md">
+          <h2 class="text-lg" style="margin:0 0 var(--space-4) 0">Spacing</h2>
+          <div class="flex items-center" style="gap: var(--space-6)">
+            <div class="bg-brand" style="width: var(--space-4); height: var(--space-4);"></div>
+            <div class="bg-brand" style="width: var(--space-5); height: var(--space-5);"></div>
+            <div class="bg-brand" style="width: var(--space-6); height: var(--space-6);"></div>
+            <div class="bg-brand" style="width: var(--space-7); height: var(--space-7);"></div>
+          </div>
+        </div>
+
+        <div class="card" data-padding="md">
+          <h2 class="text-lg" style="margin:0 0 var(--space-4) 0">Radius</h2>
+          <div class="flex items-center gap-4">
+            <div class="border" style="width:64px; height:40px; border-radius: var(--radius-sm);"></div>
+            <div class="border" style="width:64px; height:40px; border-radius: var(--radius-md);"></div>
+            <div class="border" style="width:64px; height:40px; border-radius: var(--radius-lg);"></div>
+            <div class="border" style="width:64px; height:40px; border-radius: var(--radius-full);"></div>
+          </div>
+        </div>
+
+        <div class="card" data-padding="md">
+          <h2 class="text-lg" style="margin:0 0 var(--space-4) 0">Typography</h2>
+          <p class="text-xs">Text XS</p>
+          <p class="text-sm">Text SM</p>
+          <p class="text-base">Text Base</p>
+          <p class="text-lg">Text LG</p>
+          <p class="text-xl">Text XL</p>
+        </div>
+      </section>
+    </main>
+  </body>
+  </html>
+

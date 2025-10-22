@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dialog • UI Library</title>
+    <link rel="stylesheet" href="../../dist/tokens.css" />
+    <link rel="stylesheet" href="../../dist/utilities.css" />
+    <link rel="stylesheet" href="../../dist/components.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="../../dist/alpine-helpers.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="btn" data-variant="outline" href="../index.html">Home</a>
+        <div class="flex items-center gap-3">
+          <a class="btn" data-variant="outline" href="../tokens.html">Tokens</a>
+          <a class="btn" data-variant="outline" href="../utilities.html">Utilities</a>
+          <button class="btn" data-variant="outline" x-data x-on:click="$store.theme.toggle()">Toggle Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-block: var(--space-7)">
+      <h1 class="text-xl" style="margin: 0 0 var(--space-6) 0">Dialog</h1>
+
+      <section class="card" data-padding="md">
+        <div class="flex gap-3">
+          <button class="btn" data-variant="primary" onclick="Alpine.store('dialog').open('demo-dialog')">Open Dialog</button>
+          <button class="btn" data-variant="outline" onclick="Alpine.store('dialog').close('demo-dialog')">Close</button>
+        </div>
+      </section>
+    </main>
+
+    <div class="dialog-backdrop" data-dialog-backdrop="demo-dialog"></div>
+    <div class="dialog" data-dialog="demo-dialog" role="dialog" aria-modal="true" aria-labelledby="demo-title">
+      <div data-dialog-panel>
+        <div data-dialog-header id="demo-title">Example Dialog</div>
+        <div data-dialog-body>
+          <p class="text-sm">This dialog uses Alpine store <code>$store.dialog</code> for open/close.</p>
+        </div>
+        <div data-dialog-footer>
+          <button class="btn" data-variant="ghost" onclick="Alpine.store('dialog').close('demo-dialog')">Cancel</button>
+          <button class="btn" data-variant="primary" onclick="Alpine.store('dialog').close('demo-dialog')">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>
+

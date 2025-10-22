@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Badge • UI Library</title>
+    <link rel="stylesheet" href="../../dist/tokens.css" />
+    <link rel="stylesheet" href="../../dist/utilities.css" />
+    <link rel="stylesheet" href="../../dist/components.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="../../dist/alpine-helpers.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="btn" data-variant="outline" href="../index.html">Home</a>
+        <div class="flex items-center gap-3">
+          <a class="btn" data-variant="outline" href="../tokens.html">Tokens</a>
+          <a class="btn" data-variant="outline" href="../utilities.html">Utilities</a>
+          <button class="btn" data-variant="outline" x-data x-on:click="$store.theme.toggle()">Toggle Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-block: var(--space-7)">
+      <h1 class="text-xl" style="margin: 0 0 var(--space-6) 0">Badge</h1>
+      <section class="card" data-padding="md">
+        <div class="flex gap-3 items-center">
+          <span class="badge" data-variant="neutral">neutral</span>
+          <span class="badge" data-variant="brand">brand</span>
+          <span class="badge" data-variant="ok">ok</span>
+          <span class="badge" data-variant="warn">warn</span>
+          <span class="badge" data-variant="danger">danger</span>
+        </div>
+      </section>
+    </main>
+  </body>
+  </html>
+

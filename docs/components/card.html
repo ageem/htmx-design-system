@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Card • UI Library</title>
+    <link rel="stylesheet" href="../../dist/tokens.css" />
+    <link rel="stylesheet" href="../../dist/utilities.css" />
+    <link rel="stylesheet" href="../../dist/components.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="../../dist/alpine-helpers.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="btn" data-variant="outline" href="../index.html">Home</a>
+        <div class="flex items-center gap-3">
+          <a class="btn" data-variant="outline" href="../tokens.html">Tokens</a>
+          <a class="btn" data-variant="outline" href="../utilities.html">Utilities</a>
+          <button class="btn" data-variant="outline" x-data x-on:click="$store.theme.toggle()">Toggle Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-block: var(--space-7)">
+      <h1 class="text-xl" style="margin: 0 0 var(--space-6) 0">Card</h1>
+
+      <section class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-6)">
+        <div class="card" data-padding="sm">
+          <h2 class="text-lg" style="margin:0">Small padding</h2>
+          <p class="text-sm text-muted mt-2">Use `data-padding="sm"`.</p>
+        </div>
+        <div class="card" data-padding="md">
+          <h2 class="text-lg" style="margin:0">Medium padding</h2>
+          <p class="text-sm text-muted mt-2">Default when omitted.</p>
+        </div>
+        <div class="card" data-padding="lg">
+          <h2 class="text-lg" style="margin:0">Large padding</h2>
+          <p class="text-sm text-muted mt-2">Use `data-padding="lg"`.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+  </html>
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Starter • UI Library</title>
+    <link rel="stylesheet" href="../dist/tokens.css" />
+    <link rel="stylesheet" href="../dist/utilities.css" />
+    <link rel="stylesheet" href="../dist/components.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <script defer src="../dist/alpine-helpers.js"></script>
+  </head>
+  <body>
+    <div class="container" style="padding-block: var(--space-7)">
+      <header class="flex items-center justify-between mb-4">
+        <h1 class="text-xl">Starter Page</h1>
+        <button class="btn" data-variant="outline" x-data x-on:click="$store.theme.toggle()">Toggle Theme</button>
+      </header>
+
+      <section class="card" data-padding="md" style="margin-bottom: var(--space-6)">
+        <h2 class="text-lg" style="margin:0 0 var(--space-4) 0">Buttons</h2>
+        <div class="flex gap-4">
+          <button class="btn" data-variant="primary">Primary</button>
+          <button class="btn" data-variant="outline">Outline</button>
+          <button class="btn" data-variant="ghost">Ghost</button>
+        </div>
+      </section>
+
+      <section class="card" data-padding="md" style="margin-bottom: var(--space-6)">
+        <h2 class="text-lg" style="margin:0 0 var(--space-4) 0">Input</h2>
+        <label class="text-sm" for="email">Email</label>
+        <input id="email" class="input mt-2" type="email" placeholder="you@example.com" />
+      </section>
+
+      <section class="card" data-padding="md" x-data="tabs('one')">
+        <h2 class="text-lg" style="margin:0 0 var(--space-4) 0">Tabs</h2>
+        <div class="tabs">
+          <div role="tablist">
+            <button role="tab" :aria-selected="is('one')" @click="select('one')">One</button>
+            <button role="tab" :aria-selected="is('two')" @click="select('two')">Two</button>
+          </div>
+          <div role="tabpanel" x-show="is('one')">Tab one content</div>
+          <div role="tabpanel" x-show="is('two')">Tab two content</div>
+        </div>
+      </section>
+
+      <div class="toast-container" x-data aria-live="polite" aria-atomic="true"></div>
+
+      <footer class="text-sm text-muted mt-4">
+        HTMX demos require http(s); XHR is blocked on file://. Use a local server to try <code>hx-get</code>.
+      </footer>
+    </div>
+  </body>
+  </html>
+

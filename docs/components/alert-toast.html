@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alert & Toast • UI Library</title>
+    <link rel="stylesheet" href="../../dist/tokens.css" />
+    <link rel="stylesheet" href="../../dist/utilities.css" />
+    <link rel="stylesheet" href="../../dist/components.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="../../dist/alpine-helpers.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="btn" data-variant="outline" href="../index.html">Home</a>
+        <div class="flex items-center gap-3">
+          <a class="btn" data-variant="outline" href="../tokens.html">Tokens</a>
+          <a class="btn" data-variant="outline" href="../utilities.html">Utilities</a>
+          <button class="btn" data-variant="outline" x-data x-on:click="$store.theme.toggle()">Toggle Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-block: var(--space-7)">
+      <h1 class="text-xl" style="margin: 0 0 var(--space-6) 0">Alert & Toast</h1>
+
+      <section class="card" data-padding="md" style="margin-bottom: var(--space-6)">
+        <h2 class="text-lg" style="margin:0 0 var(--space-4) 0">Inline Alerts</h2>
+        <div class="toast" data-variant="ok">Operation successful.</div>
+        <div class="toast mt-2" data-variant="warn">Something needs your attention.</div>
+        <div class="toast mt-2" data-variant="danger">An error occurred.</div>
+      </section>
+
+      <section class="card" data-padding="md">
+        <h2 class="text-lg" style="margin:0 0 var(--space-4) 0">Toast Queue</h2>
+        <div class="flex gap-3">
+          <button class="btn" data-variant="outline" @click="Alpine.store('toast').show('Saved!', { variant: 'ok' })">Success</button>
+          <button class="btn" data-variant="outline" @click="Alpine.store('toast').show('Heads up', { variant: 'warn' })">Warn</button>
+          <button class="btn" data-variant="outline" @click="Alpine.store('toast').show('Oops', { variant: 'danger' })">Error</button>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast-container" x-data aria-live="polite" aria-atomic="true">
+      <template x-for="t in $store.toast.items" :key="t.id">
+        <div class="toast" :data-variant="t.variant">
+          <div class="text-sm" x-text="t.msg"></div>
+          <button class="btn" data-variant="icon" @click="$store.toast.dismiss(t.id)" aria-label="Dismiss">✕</button>
+        </div>
+      </template>
+    </div>
+  </body>
+  </html>
+

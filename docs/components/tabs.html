@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tabs • UI Library</title>
+    <link rel="stylesheet" href="../../dist/tokens.css" />
+    <link rel="stylesheet" href="../../dist/utilities.css" />
+    <link rel="stylesheet" href="../../dist/components.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="../../dist/alpine-helpers.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="btn" data-variant="outline" href="../index.html">Home</a>
+        <div class="flex items-center gap-3">
+          <a class="btn" data-variant="outline" href="../tokens.html">Tokens</a>
+          <a class="btn" data-variant="outline" href="../utilities.html">Utilities</a>
+          <button class="btn" data-variant="outline" x-data x-on:click="$store.theme.toggle()">Toggle Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-block: var(--space-7)">
+      <h1 class="text-xl" style="margin: 0 0 var(--space-6) 0">Tabs</h1>
+
+      <section class="card" data-padding="md" x-data="tabs('one')">
+        <div class="tabs">
+          <div role="tablist">
+            <button role="tab" :aria-selected="is('one')" @click="select('one')">One</button>
+            <button role="tab" :aria-selected="is('two')" @click="select('two')">Two</button>
+          </div>
+          <div role="tabpanel" x-show="is('one')">Tab one content</div>
+          <div role="tabpanel" x-show="is('two')">Tab two content</div>
+        </div>
+      </section>
+    </main>
+  </body>
+  </html>
+

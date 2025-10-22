@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Input • UI Library</title>
+    <link rel="stylesheet" href="../../dist/tokens.css" />
+    <link rel="stylesheet" href="../../dist/utilities.css" />
+    <link rel="stylesheet" href="../../dist/components.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="../../dist/alpine-helpers.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="btn" data-variant="outline" href="../index.html">Home</a>
+        <div class="flex items-center gap-3">
+          <a class="btn" data-variant="outline" href="../tokens.html">Tokens</a>
+          <a class="btn" data-variant="outline" href="../utilities.html">Utilities</a>
+          <button class="btn" data-variant="outline" x-data x-on:click="$store.theme.toggle()">Toggle Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-block: var(--space-7)">
+      <h1 class="text-xl" style="margin: 0 0 var(--space-6) 0">Input</h1>
+
+      <section class="card" data-padding="md" style="margin-bottom: var(--space-6)">
+        <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Basic</h2>
+        <label class="text-sm" for="name">Name</label>
+        <input id="name" class="input mt-2" placeholder="Jane Doe" />
+        <p class="text-xs text-muted mt-2">Use labels for accessible form controls.</p>
+      </section>
+
+      <section class="card" data-padding="md" style="margin-bottom: var(--space-6)">
+        <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">With helper and error</h2>
+        <label class="text-sm" for="email">Email</label>
+        <input id="email" class="input mt-2" type="email" placeholder="you@example.com" aria-describedby="email-help email-err" aria-invalid="true" />
+        <p id="email-help" class="text-xs text-muted mt-2">We'll only use this for account notices.</p>
+        <p id="email-err" class="text-xs" style="color: var(--danger); margin-top: var(--space-2)">Please enter a valid email.</p>
+      </section>
+
+      <section class="card" data-padding="md">
+        <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Disabled</h2>
+        <label class="text-sm" for="disabled">Disabled</label>
+        <input id="disabled" class="input mt-2" placeholder="Cannot edit" disabled />
+      </section>
+    </main>
+  </body>
+  </html>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Button • UI Library</title>
+    <link rel="stylesheet" href="../../dist/tokens.css" />
+    <link rel="stylesheet" href="../../dist/utilities.css" />
+    <link rel="stylesheet" href="../../dist/components.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="../../dist/alpine-helpers.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="btn" data-variant="outline" href="../index.html">Home</a>
+        <div class="flex items-center gap-3">
+          <a class="btn" data-variant="outline" href="../tokens.html">Tokens</a>
+          <a class="btn" data-variant="outline" href="../utilities.html">Utilities</a>
+          <button class="btn" data-variant="outline" x-data x-on:click="$store.theme.toggle()">Toggle Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-block: var(--space-7)">
+      <h1 class="text-xl" style="margin: 0 0 var(--space-6) 0">Button</h1>
+
+      <section class="card" data-padding="md" style="margin-bottom: var(--space-6)">
+        <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Variants</h2>
+        <div class="flex gap-4">
+          <button class="btn" data-variant="primary">Primary</button>
+          <button class="btn" data-variant="outline">Outline</button>
+          <button class="btn" data-variant="ghost">Ghost</button>
+          <button class="btn" data-variant="danger">Danger</button>
+          <button class="btn" data-variant="icon" aria-label="Icon button">★</button>
+        </div>
+      </section>
+
+      <section class="card" data-padding="md" style="margin-bottom: var(--space-6)">
+        <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Sizes</h2>
+        <div class="flex gap-4 items-center">
+          <button class="btn" data-size="sm" data-variant="primary">Small</button>
+          <button class="btn" data-size="md" data-variant="primary">Medium</button>
+          <button class="btn" data-size="lg" data-variant="primary">Large</button>
+        </div>
+      </section>
+
+      <section class="card" data-padding="md">
+        <h2 class="text-lg" style="margin: 0 0 var(--space-4) 0">Accessibility</h2>
+        <ul>
+          <li>Buttons use visible focus with `:focus-visible`.</li>
+          <li>Provide `aria-label` for icon-only buttons.</li>
+          <li>Use `disabled` to indicate non-interactive state.</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+  </html>
+

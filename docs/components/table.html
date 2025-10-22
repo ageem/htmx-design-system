@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Table • UI Library</title>
+    <link rel="stylesheet" href="../../dist/tokens.css" />
+    <link rel="stylesheet" href="../../dist/utilities.css" />
+    <link rel="stylesheet" href="../../dist/components.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="../../dist/alpine-helpers.js"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="btn" data-variant="outline" href="../index.html">Home</a>
+        <div class="flex items-center gap-3">
+          <a class="btn" data-variant="outline" href="../tokens.html">Tokens</a>
+          <a class="btn" data-variant="outline" href="../utilities.html">Utilities</a>
+          <button class="btn" data-variant="outline" x-data x-on:click="$store.theme.toggle()">Toggle Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-block: var(--space-7)">
+      <h1 class="text-xl" style="margin: 0 0 var(--space-6) 0">Table</h1>
+
+      <section class="card" data-padding="md">
+        <div style="overflow-x: auto">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Jane Doe</td>
+                <td><span class="badge" data-variant="ok">Active</span></td>
+                <td>Editor</td>
+              </tr>
+              <tr>
+                <td>John Smith</td>
+                <td><span class="badge" data-variant="warn">Pending</span></td>
+                <td>Viewer</td>
+              </tr>
+              <tr>
+                <td>Amy Lee</td>
+                <td><span class="badge" data-variant="danger">Suspended</span></td>
+                <td>Admin</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-xs text-muted mt-2">Wrap tables in an overflow container for small screens.</p>
+      </section>
+    </main>
+  </body>
+  </html>
+
